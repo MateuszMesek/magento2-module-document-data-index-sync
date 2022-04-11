@@ -1,0 +1,104 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- config -->
+    <type name="MateuszMesek\DocumentDataIndexSync\Config">
+        <arguments>
+            <argument name="data" xsi:type="object">MateuszMesek\DocumentDataIndexSync\Config\Data</argument>
+        </arguments>
+    </type>
+    <virtualType name="MateuszMesek\DocumentDataIndexSync\Config\Data" type="Magento\Framework\Config\Data">
+        <arguments>
+            <argument name="reader" xsi:type="object">MateuszMesek\DocumentDataIndexSync\Config\Reader</argument>
+            <argument name="cacheId" xsi:type="string">document_data_sync_config_cache</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MateuszMesek\DocumentDataIndexSync\Config\Reader" type="Magento\Framework\Config\Reader\Filesystem">
+        <arguments>
+            <argument name="converter" xsi:type="object">MateuszMesek\DocumentDataIndexSync\Config\Converter</argument>
+            <argument name="schemaLocator" xsi:type="object">MateuszMesek\DocumentDataIndexSync\Config\SchemaLocator</argument>
+            <argument name="fileName" xsi:type="string">document_data_sync.xml</argument>
+            <argument name="idAttributes" xsi:type="array">
+                <item name="/config/document" xsi:type="string">name</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="MateuszMesek\DocumentDataIndexSync\Config\Converter">
+        <arguments>
+            <argument name="documentProcessor" xsi:type="object">MateuszMesek\DocumentDataIndexSync\Config\Converter\Document</argument>
+        </arguments>
+    </type>
+    <virtualType name="MateuszMesek\DocumentDataIndexSync\Config\SchemaLocator" type="Magento\Framework\Config\GenericSchemaLocator">
+        <arguments>
+            <argument name="moduleName" xsi:type="string">MateuszMesek_DocumentDataIndexSync</argument>
+            <argument name="schema" xsi:type="string">document_data_sync.xsd</argument>
+        </arguments>
+    </virtualType>
+    <!-- indexer -->
+    <type name="Magento\Framework\Indexer\Config\Reader">
+        <plugin name="MateuszMesek_DocumentDataIndexSync" type="MateuszMesek\DocumentDataIndexSync\Plugin\InjectIndexers\OnIndexerConfigReader"/>
+    </type>
+    <virtualType name="MateuszMesek\DocumentDataIndexSync\IndexerAction" type="MateuszMesek\DocumentDataIndexIndexer\Action">
+        <arguments>
+            <argument name="executorFactory" xsi:type="object">MateuszMesek\DocumentDataIndexSync\Action\ExecutorFactory</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MateuszMesek\DocumentDataIndexSync\Action\ExecutorFactory" type="MateuszMesek\DocumentDataIndexIndexer\Action\ExecutorFactory">
+        <arguments>
+            <argument name="types" xsi:type="array">
+                <item name="full" xsi:type="string">MateuszMesek\DocumentDataIndexSync\Action\Full</item>
+                <item name="row" xsi:type="string">MateuszMesek\DocumentDataIndexSync\Action\Row</item>
+                <item name="rows" xsi:type="string">MateuszMesek\DocumentDataIndexSync\Action\Rows</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MateuszMesek\DocumentDataIndexSync\Action\Full" type="MateuszMesek\DocumentDataIndexIndexer\Action\Full">
+        <arguments>
+            <argument name="dimensionalIndexer" xsi:type="object">MateuszMesek\DocumentDataIndexSync\DimensionalIndexer</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MateuszMesek\DocumentDataIndexSync\Action\Row" type="MateuszMesek\DocumentDataIndexIndexer\Action\Row">
+        <arguments>
+            <argument name="dimensionalIndexer" xsi:type="object">MateuszMesek\DocumentDataIndexSync\DimensionalIndexer</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MateuszMesek\DocumentDataIndexSync\Action\Rows" type="MateuszMesek\DocumentDataIndexIndexer\Action\Rows">
+        <arguments>
+            <argument name="dimensionalIndexer" xsi:type="object">MateuszMesek\DocumentDataIndexSync\DimensionalIndexer</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MateuszMesek\DocumentDataIndexSync\DimensionalIndexer" type="MateuszMesek\DocumentDataIndex\DimensionalIndexer">
+        <arguments>
+            <argument name="dataResolver" xsi:type="object">MateuszMesek\DocumentDataIndexSync\DataResolver</argument>
+            <argument name="saveHandler" xsi:type="object">MateuszMesek\DocumentDataIndexSync\SaveHandler</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MateuszMesek\DocumentDataIndexSync\DataResolver" type="MateuszMesek\DocumentDataIndex\DataResolver">
+        <arguments>
+            <argument name="dataResolverFactory" xsi:type="object">MateuszMesek\DocumentDataIndexSync\DataResolverFactory</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MateuszMesek\DocumentDataIndexSync\DataResolverFactory" type="MateuszMesek\DocumentDataIndex\DataResolverFactory">
+        <arguments>
+            <argument name="config" xsi:type="object">MateuszMesek\DocumentDataIndexSync\Config</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MateuszMesek\DocumentDataIndexSync\SaveHandler" type="MateuszMesek\DocumentDataIndex\SaveHandler">
+        <arguments>
+            <argument name="saveHandlerFactory" xsi:type="object">MateuszMesek\DocumentDataIndexSync\SaveHandlerFactory</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MateuszMesek\DocumentDataIndexSync\SaveHandlerFactory" type="MateuszMesek\DocumentDataIndex\SaveHandlerFactory">
+        <arguments>
+            <argument name="config" xsi:type="object">MateuszMesek\DocumentDataIndexSync\Config</argument>
+        </arguments>
+    </virtualType>
+    <!-- mview -->
+    <type name="Magento\Framework\Mview\Config\Reader">
+        <plugin name="MateuszMesek_DocumentDataIndexSync" type="MateuszMesek\DocumentDataIndexSync\Plugin\InjectViews\OnViewConfigReader"/>
+    </type>
+    <virtualType name="KMK\DocumentDataIndexSync\MviewAction" type="MateuszMesek\DocumentDataIndexMview\Action">
+        <arguments>
+            <argument name="dimensionalIndexer" xsi:type="object">MateuszMesek\DocumentDataIndexSync\DimensionalIndexer</argument>
+        </arguments>
+    </virtualType>
+</config>

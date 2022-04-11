@@ -1,0 +1,26 @@
+{
+    "name": "mateuszmesek-magento2/module-document-data-index-sync",
+    "description": "N/A",
+    "type": "magento2-module",
+    "require": {
+        "ext-dom": "*",
+        "magento/framework": "*",
+        "mateuszmesek-magento2/framework-config": "*",
+        "mateuszmesek-magento2/module-document-data-index-indexer": "*",
+        "mateuszmesek-magento2/module-document-data-index-mview": "*"
+    },
+    "license": [
+        "MIT"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "MateuszMesek\\DocumentDataIndexSync\\": "src"
+        }
+    },
+    "replace": {
+        "mateuszmesek-magento2/module-document-data-index-sync": "*"
+    }
+}
