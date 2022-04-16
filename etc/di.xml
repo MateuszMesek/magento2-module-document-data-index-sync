@@ -98,7 +98,13 @@
     </type>
     <virtualType name="KMK\DocumentDataIndexSync\MviewAction" type="MateuszMesek\DocumentDataIndexMview\Action">
         <arguments>
+            <argument name="changelogListProvider" xsi:type="object">MateuszMesek\DocumentDataIndexSync\ChangelogListProvider</argument>
             <argument name="dimensionalIndexer" xsi:type="object">MateuszMesek\DocumentDataIndexSync\DimensionalIndexer</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MateuszMesek\DocumentDataIndexSync\ChangelogListProvider" type="MateuszMesek\DocumentDataIndexMview\ChangelogListProvider">
+        <arguments>
+            <argument name="changelogTableNameResolver" xsi:type="object">MateuszMesek\DocumentDataIndexSync\ChangelogTableNameResolver</argument>
         </arguments>
     </virtualType>
     <!-- mview subscriptions -->
