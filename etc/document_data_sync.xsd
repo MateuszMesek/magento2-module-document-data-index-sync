@@ -25,6 +25,7 @@
             <xs:element name="saveHandler" type="object" minOccurs="0" maxOccurs="1"/>
             <xs:element name="indexerAction" type="object" minOccurs="0" maxOccurs="1"/>
             <xs:element name="mviewAction" type="object" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="subscriptionProvider" type="object" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
         <xs:attribute name="name" type="xs:string" use="required"/>
     </xs:complexType>

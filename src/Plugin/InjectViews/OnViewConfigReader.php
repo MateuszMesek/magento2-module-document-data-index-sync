@@ -39,6 +39,7 @@ class OnViewConfigReader
                         'subscription_model' => null
                     ]
                 ],
+                'sync_document_name' => $documentName
             ];
         }
 

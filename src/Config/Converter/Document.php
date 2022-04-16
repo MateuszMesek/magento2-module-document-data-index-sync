@@ -11,7 +11,10 @@ class Document implements ProcessorInterface
 {
     private const NODES = [
         'dataResolver',
-        'saveHandler'
+        'saveHandler',
+        'indexerAction',
+        'mviewAction',
+        'subscriptionProvider'
     ];
 
     private AttributeValueResolver $attributeValueResolver;
