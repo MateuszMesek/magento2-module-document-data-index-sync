@@ -30,7 +30,7 @@ class OnIndexerConfigReader
             $output[$indexId] = [
                 'indexer_id' => $indexId,
                 'view_id' => $indexId,
-                'action_class' => $this->config->getIndexerAction($documentName) ?: 'MateuszMesek\DocumentDataIndexSync\Action',
+                'action_class' => $this->config->getIndexerAction($documentName) ?: 'MateuszMesek\DocumentDataIndexSync\IndexerAction',
                 'shared_index' => null,
                 'title' => 'Document Data Sync: '.$this->convertNameToTile($documentName),
                 'description' => '',
