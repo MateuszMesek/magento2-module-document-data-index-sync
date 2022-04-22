@@ -39,30 +39,6 @@
     </type>
     <virtualType name="MateuszMesek\DocumentDataIndexSync\IndexerAction" type="MateuszMesek\DocumentDataIndexIndexer\Action">
         <arguments>
-            <argument name="executorFactory" xsi:type="object">MateuszMesek\DocumentDataIndexSync\IndexerAction\ExecutorFactory</argument>
-        </arguments>
-    </virtualType>
-    <virtualType name="MateuszMesek\DocumentDataIndexSync\IndexerAction\ExecutorFactory" type="MateuszMesek\DocumentDataIndexIndexer\Action\ExecutorFactory">
-        <arguments>
-            <argument name="types" xsi:type="array">
-                <item name="full" xsi:type="string">MateuszMesek\DocumentDataIndexSync\IndexerAction\Full</item>
-                <item name="row" xsi:type="string">MateuszMesek\DocumentDataIndexSync\IndexerAction\Row</item>
-                <item name="rows" xsi:type="string">MateuszMesek\DocumentDataIndexSync\IndexerAction\Rows</item>
-            </argument>
-        </arguments>
-    </virtualType>
-    <virtualType name="MateuszMesek\DocumentDataIndexSync\IndexerAction\Full" type="MateuszMesek\DocumentDataIndexIndexer\Action\Full">
-        <arguments>
-            <argument name="dimensionalIndexer" xsi:type="object">MateuszMesek\DocumentDataIndexSync\DimensionalIndexer</argument>
-        </arguments>
-    </virtualType>
-    <virtualType name="MateuszMesek\DocumentDataIndexSync\IndexerAction\Row" type="MateuszMesek\DocumentDataIndexIndexer\Action\Row">
-        <arguments>
-            <argument name="dimensionalIndexer" xsi:type="object">MateuszMesek\DocumentDataIndexSync\DimensionalIndexer</argument>
-        </arguments>
-    </virtualType>
-    <virtualType name="MateuszMesek\DocumentDataIndexSync\IndexerAction\Rows" type="MateuszMesek\DocumentDataIndexIndexer\Action\Rows">
-        <arguments>
             <argument name="dimensionalIndexer" xsi:type="object">MateuszMesek\DocumentDataIndexSync\DimensionalIndexer</argument>
         </arguments>
     </virtualType>

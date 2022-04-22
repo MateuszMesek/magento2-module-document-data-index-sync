@@ -3,11 +3,12 @@
 namespace MateuszMesek\DocumentDataIndexSync;
 
 use Magento\Framework\Config\DataInterface;
+use MateuszMesek\DocumentDataApi\Config\DocumentNamesInterface;
 use MateuszMesek\DocumentDataIndexIndexerApi\Config\DataResolverInterface;
 use MateuszMesek\DocumentDataIndexIndexerApi\Config\SaveHandlerInterface;
 use MateuszMesek\DocumentDataIndexMviewApi\Config\SubscriptionProviderInterface;
 
-class Config implements DataResolverInterface, SaveHandlerInterface, SubscriptionProviderInterface
+class Config implements DocumentNamesInterface, DataResolverInterface, SaveHandlerInterface, SubscriptionProviderInterface
 {
     private DataInterface $data;
 
