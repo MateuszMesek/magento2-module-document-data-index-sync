@@ -6,6 +6,7 @@
         "ext-dom": "*",
         "magento/framework": "*",
         "mateuszmesek-magento2/framework-config": "*",
+        "mateuszmesek-magento2/module-document-data-api": "*",
         "mateuszmesek-magento2/module-document-data-index-indexer": "*",
         "mateuszmesek-magento2/module-document-data-index-mview": "*"
     },
