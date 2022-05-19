@@ -31,7 +31,7 @@ class OnViewConfigReader
             $output[$viewId] = [
                 'view_id' => $viewId,
                 'action_class' => $this->config->getMviewAction($documentName),
-                'group' => 'index',
+                'group' => 'indexer',
                 'subscriptions' => [
                     $subscriptionTable => [
                         'name' => $subscriptionTable,
