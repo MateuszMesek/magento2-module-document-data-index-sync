@@ -22,7 +22,13 @@
         </xs:annotation>
         <xs:sequence>
             <xs:element name="dataResolver" type="object" minOccurs="0" maxOccurs="1"/>
+
+            <xs:element name="indexStructureBuilder" type="object" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="indexNameResolver" type="object" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="indexIdsResolver" type="object" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="readHandler" type="object" minOccurs="0" maxOccurs="1"/>
             <xs:element name="saveHandler" type="object" minOccurs="0" maxOccurs="1"/>
+
             <xs:element name="indexerAction" type="object" minOccurs="0" maxOccurs="1"/>
             <xs:element name="mviewAction" type="object" minOccurs="0" maxOccurs="1"/>
             <xs:element name="subscriptionProvider" type="object" minOccurs="0" maxOccurs="1"/>

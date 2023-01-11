@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace MateuszMesek\DocumentDataIndexSync\Config\Converter;
+namespace MateuszMesek\DocumentDataIndexSync\Model\Config\Converter;
 
 use DOMNode;
 use MateuszMesek\Framework\Config\Converter\AttributeValueResolver;
@@ -11,22 +11,23 @@ class Document implements ProcessorInterface
 {
     private const NODES = [
         'dataResolver',
+
+        'indexStructureBuilder',
+        'indexNameResolver',
+        'indexIdsResolver',
+        'readHandler',
         'saveHandler',
+
         'indexerAction',
         'mviewAction',
         'subscriptionProvider'
     ];
 
-    private AttributeValueResolver $attributeValueResolver;
-    private ChildrenResolver $childrenResolver;
-
     public function __construct(
-        AttributeValueResolver $attributeValueResolver,
-        ChildrenResolver $childrenResolver
+        private readonly AttributeValueResolver $attributeValueResolver,
+        private readonly ChildrenResolver       $childrenResolver
     )
     {
-        $this->attributeValueResolver = $attributeValueResolver;
-        $this->childrenResolver = $childrenResolver;
     }
 
     public function process(DOMNode $node): array

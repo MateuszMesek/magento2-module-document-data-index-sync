@@ -3,17 +3,14 @@
 namespace MateuszMesek\DocumentDataIndexSync\Plugin\InjectViews;
 
 use Magento\Framework\Mview\Config\Reader;
-use MateuszMesek\DocumentDataIndexSync\Config;
+use MateuszMesek\DocumentDataIndexSync\Model\Config;
 
 class OnViewConfigReader
 {
-    private Config $config;
-
     public function __construct(
-        Config $config
+        private readonly Config $config
     )
     {
-        $this->config = $config;
     }
 
     public function afterRead(
