@@ -128,7 +128,7 @@
     <type name="Magento\Framework\Mview\Config\Reader">
         <plugin name="MateuszMesek_DocumentDataIndexSync" type="MateuszMesek\DocumentDataIndexSync\Plugin\InjectViews\OnViewConfigReader"/>
     </type>
-    <virtualType name="KMK\DocumentDataIndexSync\Model\MviewAction" type="MateuszMesek\DocumentDataIndexMview\Model\Action">
+    <virtualType name="MateuszMesek\DocumentDataIndexSync\Model\MviewAction" type="MateuszMesek\DocumentDataIndexMview\Model\Action">
         <arguments>
             <argument name="changelogListProvider" xsi:type="object">MateuszMesek\DocumentDataIndexSync\Model\ChangelogListProvider</argument>
             <argument name="dimensionalIndexer" xsi:type="object">MateuszMesek\DocumentDataIndexSync\Model\DimensionalIndexer</argument>
