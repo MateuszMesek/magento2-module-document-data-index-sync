@@ -5,7 +5,7 @@
     "require": {
         "php": ">=8.1",
         "ext-dom": "*",
-        "magento/framework": "*",
+        "magento/framework": "<103.0.7",
         "mateuszmesek-magento2/framework-config": "^1.0",
         "mateuszmesek-magento2/module-document-data-api": "^1.0",
         "mateuszmesek-magento2/module-document-data-index-indexer": "^1.0",
