@@ -4,7 +4,7 @@ namespace MateuszMesek\DocumentDataIndexSync\Plugin\InjectViews;
 
 use Magento\Framework\Mview\Config\Reader;
 use Magento\Framework\Mview\View\AdditionalColumnsProcessor\DefaultProcessor;
-use Magento\Framework\Mview\View\ChangeLogBatchWalker;
+use Magento\Framework\Mview\View\ChangelogBatchWalker;
 use MateuszMesek\DocumentDataIndexSync\Model\Config;
 
 class OnViewConfigReader
@@ -31,7 +31,7 @@ class OnViewConfigReader
                 'view_id' => $viewId,
                 'action_class' => $this->config->getMviewAction($documentName),
                 'group' => 'indexer',
-                'walker' => ChangeLogBatchWalker::class,
+                'walker' => ChangelogBatchWalker::class,
                 'subscriptions' => [
                     $subscriptionTable => [
                         'name' => $subscriptionTable,
